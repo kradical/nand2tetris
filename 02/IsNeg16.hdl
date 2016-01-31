@@ -1,0 +1,14 @@
+// File name: projects/02/isNeg16.hdl
+
+/**
+ * 16-bit Test if number is negative:
+ * out = and in[15] 1 
+ */
+ 
+ CHIP IsNeg16 {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    And(a=in[15], b=true, out=out);  
+}
