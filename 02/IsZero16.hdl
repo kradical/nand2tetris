@@ -1,0 +1,17 @@
+// File name: projects/02/isNeg16.hdl
+
+/**
+ * 16-bit Test if number is zero:
+ * out = not ( 16wayOr ( in ) ) 
+ */
+ 
+ CHIP IsZero16 {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+   Or8Way(in=in[0..7], out=zout1);
+   Or8Way(in=in[8..15], out=zout2);
+   Or(a=zout1, b=zout2, out=zout);
+   Not(in=zout, out=out);
+}
