@@ -10,13 +10,33 @@
 
 // Put your code here.
 
-(LOOP)
+(MAINLOOP)
+  @FILL
+  M=0
+  @24575
+  D=A
+  @OFFSET
+  M=D
+
   @KBD
   D=M
   @SETSCREEN
   D;JEQ
-  D=-1
+  @FILL
+  M=-1
 
 (SETSCREEN)
-  @LOOP
-  0;JMP
+  @FILL
+  D=M
+  @OFFSET
+  A=M
+  M=D
+  @OFFSET
+  M=M-1
+  D=M
+  @SCREEN
+  D=D-A
+  @MAINLOOP
+  D;JEQ
+  @SETSCREEN
+  0;JEQ
